@@ -1,0 +1,31 @@
+.tasks{
+
+    text-align:center;
+}
+/*
+.tasks .task-box{
+    border:5px solid yellow;
+
+}
+*/
+.form{
+text-align:center
+}
+#id_description{
+    width:15%
+}
+#id_category{
+    width:15%
+}
+.input-group{
+    width:15%
+
+}
+.danger{
+padding:15px 25px;
+font-size:25px;
+background-color:#E1E1E1;
+float:left;
+margin-left:598px;
+margin-right:-586px
+}

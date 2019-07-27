@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrapmin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/gijgo.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+</head>
+<body>
+
+<section class="form">
+    <h1>Add New Task</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <button class="danger" type="submit"><i class="fas fa-plus"></i>Add task</button>
+    </form>
+
+</section>
+
+<section class="tasks">
+
+
+<ul>
+<form method="post">{% csrf_token %}
+<button class="danger" type="submit" name="delete" value="Delete Task"><i class="far fa-trash-alt"></i>Delete tasks</button>
+    <br><br><br><br><br>
+    <h1>Task List</h1>
+    {% for tasks in tasks %}
+     <li>
+    <div class="task-box">
+
+<input type="checkbox" name="inputs" id="option{{input.id}}" value={{tasks.id}} />
+        {{tasks.description}} , {{tasks.category}} <i class="far fa-calendar-alt"></i> <strong>{{tasks.date}}</strong>
+
+            <input type="hidden" name="t" value="{{tasks.id}}">
+
+
+
+    </div> </li>
+    {% endfor %}
+ </form>
+</ul>
+</section>
+<script src="{% static 'js/jquery-min.js' %}"></script>
+<script src="{% static 'js/gijgo.min.js' %}"></script>
+<script>
+        $('#id_date').datepicker(
+            { uiLibrary: 'bootstrap4', modal: true }
+        );
+    </script>
+</body>
+</html>
