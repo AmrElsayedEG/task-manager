@@ -17,7 +17,9 @@ Including another URLconf
 from django.urls import path
 
 from task import views
-
+from graphene_django.views import GraphQLView
+from task.schema import schema
 urlpatterns = [
-    path('',views.home)
+    path('',views.home),
+    path('graphql', GraphQLView.as_view(graphiql=True, schema=schema)),
 ]
